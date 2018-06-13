@@ -1,0 +1,6 @@
+en:
+  respondable:
+    error:
+      unauthorized: 'Unauthorized: User not authorized'
+      unprocessable_entity: 'Unprocessable Entity: Entity might already exist'
+      bad_request: 'Bad Request'
