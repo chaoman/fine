@@ -3,7 +3,12 @@ module Respondable
 
   delegate :t, to: I18n
 
-  def respond_with_error(error_sym)
-    render json: { error: t("respondable.error.#{error_sym.to_s}") }, status: error_sym
+  def respond_with_error(error_sym, error_message = "")
+    render json:
+               {
+                   exception: t("respondable.error.#{error_sym.to_s}"),
+                   error: error_message
+               },
+           status: error_sym
   end
 end
