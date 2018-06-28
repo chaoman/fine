@@ -13,7 +13,7 @@ gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.7.2'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'json_spec'
