@@ -1,3 +1,4 @@
+# Main application controller with all the necessary before actions and methods for auth.
 class ApplicationController < ActionController::API
   include Respondable
 
@@ -8,12 +9,9 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    if auth_present?
-      user = User.find auth.first["user"]
-      if user
-        @current_user ||= user
-      end
-    end
+    return unless auth_present?
+    user = User.find auth.first['user']
+    @current_user ||= user if user
   end
 
   def authenticate
@@ -23,7 +21,7 @@ class ApplicationController < ActionController::API
   private
 
   def http_authorization
-    request.env["HTTP_AUTHORIZATION"]
+    request.env['HTTP_AUTHORIZATION']
   end
 
   def auth_token
