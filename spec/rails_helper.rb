@@ -5,8 +5,8 @@ require 'simplecov'
 SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 REQUEST_HEADERS = {
-    'Accept' => 'application/json',
-    'Content-Type' => 'application/json'
+  'Accept' => 'application/json',
+  'Content-Type' => 'application/json'
 }.freeze
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production

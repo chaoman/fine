@@ -11,16 +11,16 @@ RSpec.describe User, type: :model do
 
   it 'has a unique email' do
     user2 = build(:user, email: @user1.email)
-    expect(user2).to_not be_valid
+    expect(user2).not_to be_valid
   end
 
   it 'has a unique username' do
     user2 = build(:user, username: @user1.username)
-    expect(user2).to_not be_valid
+    expect(user2).not_to be_valid
   end
 
   it 'checks password validation correctness' do
     user = build(:user, password: 'asd')
-    expect(user).to_not be_valid
+    expect(user).not_to be_valid
   end
 end
