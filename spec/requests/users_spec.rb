@@ -21,7 +21,7 @@ RSpec.describe 'Users', type: :request do
     user_instance = User.find_by_username(@user1.username)
     serialized_user = UserSerializer.new(user_instance).serialized_json
 
-    expect(response).to have_http_status(200)
-    expect(response_json).to be_json_eql(serialized_user.to_json)
+    expect(response).to have_http_status 200
+    expect(response_json).to be_json_eql serialized_user.to_json
   end
 end

@@ -15,7 +15,7 @@ RSpec.describe 'Sessions', type: :request do
     post sessions_path, params: request_body, headers: REQUEST_HEADERS
     response_token = response.body.to_json['access_token']
 
-    expect(response).to have_http_status(200)
+    expect(response).to have_http_status 200
     expect(response_token).to be_present
   end
 end
