@@ -5,6 +5,9 @@ RSpec.describe User, type: :model do
     @user1 = create :user
   end
 
+  it { should have_secure_password }
+  it { should validate_presence_of :email }
+
   it 'is valid with valid attributes' do
     expect(@user1).to be_valid
   end
