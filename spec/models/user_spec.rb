@@ -1,29 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before :all do
-    @user1 = create :user
-  end
+  before(:all) { @user1 = create :user }
+  it { is_expected.to have_secure_password }
+  it { is_expected.to validate_presence_of :email }
+  it { is_expected.to validate_presence_of :username }
+  it { is_expected.to validate_uniqueness_of :username }
+  it { is_expected.to validate_uniqueness_of :email }
 
-  it { should have_secure_password }
-  it { should validate_presence_of :email }
-
-  it 'is valid with valid attributes' do
-    expect(@user1).to be_valid
-  end
-
-  it 'has a unique email' do
-    user2 = build(:user, email: @user1.email)
-    expect(user2).not_to be_valid
-  end
-
-  it 'has a unique username' do
-    user2 = build(:user, username: @user1.username)
-    expect(user2).not_to be_valid
-  end
-
-  it 'checks password validation correctness' do
-    user = build(:user, password: 'asd')
-    expect(user).not_to be_valid
+  before { @user2 = build(:user, password: 'asd') }
+  context 'when password validation failed' do
+    it { expect(@user2).not_to be_valid }
   end
 end

@@ -1,21 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :request do
-  before :all do
-    @user1 = build :user
-  end
+  before(:all) { @user1 = build :user }
 
-  it 'signs user in and returns JWT token' do
-    request_body = {
+  let!(:request_body) {
+    {
       auth: {
         email: @user1.email,
         password: @user1.password
       }
     }.to_json
-    post sessions_path, params: request_body, headers: REQUEST_HEADERS
-    response_token = response.body.to_json['access_token']
+  }
 
-    expect(response).to have_http_status 200
-    expect(response_token).to be_present
+  before { post sessions_path, params: request_body, headers: REQUEST_HEADERS }
+
+  context 'when creates new session' do
+    it { expect(response).to have_http_status 200 }
+    let!(:response_token) { response.body.to_json['access_token'] }
+    it { expect(response_token).to be_present }
   end
 end
