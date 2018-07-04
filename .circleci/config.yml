@@ -60,3 +60,9 @@ jobs:
           name: run Rubocop
           command: |
             bundle exec rubocop
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: fine-api
