@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   before(:all) { @user1 = build :user }
 
-  let!(:request_body) {
+  let!(:request_body) do
     {
       user: {
         username: @user1.username,
@@ -11,7 +11,7 @@ RSpec.describe 'Users', type: :request do
         password: @user1.password
       }
     }.to_json
-  }
+  end
 
   before { User.find_by_username(@user1.username).destroy }
   before { post users_path, params: request_body, headers: REQUEST_HEADERS }

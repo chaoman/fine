@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe 'Sessions', type: :request do
   before(:all) { @user1 = build :user }
 
-  let!(:request_body) {
+  let!(:request_body) do
     {
       auth: {
         email: @user1.email,
         password: @user1.password
       }
     }.to_json
-  }
+  end
 
   before { post sessions_path, params: request_body, headers: REQUEST_HEADERS }
 

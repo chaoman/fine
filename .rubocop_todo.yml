@@ -11,7 +11,6 @@ AllCops:
     - 'db/schema.rb'
     - 'Gemfile'
     - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
     - 'bin/spring'
     - 'config/environments/production.rb'
     - 'config/application.rb'
@@ -47,11 +46,6 @@ Layout/EmptyLinesAroundBlockBody:
 Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
     - 'config/environments/production.rb'
-
-# Offense count: 1
-Style/DoubleNegation:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

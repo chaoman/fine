@@ -33,6 +33,6 @@ class ApplicationController < ActionController::API
   end
 
   def auth_present?
-    !!auth_token
+    auth_token.present?
   end
 end
