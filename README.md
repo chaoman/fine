@@ -1,24 +1,12 @@
-# README
+# Fine
+![CircleCI](https://img.shields.io/circleci/project/github/mrcnk/fine.svg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+RESTful API for Vine / Instagram clone app.
 
-Things you may want to cover:
+### Ruby / Rails versions:
+* Ruby 2.4.1
+* Ruby on Rails 5.2
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Testing
+* RSpec
+* Shoulda Matchers
