@@ -8,14 +8,16 @@
 
 AllCops:
   Exclude:
-    - 'db/schema.rb'
     - 'Gemfile'
     - 'app/mailers/application_mailer.rb'
-    - 'bin/spring'
     - 'config/environments/production.rb'
     - 'config/application.rb'
     - 'config/puma.rb'
-    - 'db/migrate/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'log/**/*'
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: Include, TreatCommentsAsGroupSeparators.
