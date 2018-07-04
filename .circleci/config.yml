@@ -8,6 +8,9 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          RAILS_ENV: test
       - image: circleci/postgres:10.4-alpine
         environment:
           POSTGRES_DB: fine_test
@@ -40,8 +43,8 @@ jobs:
             bundle exec rubocop
 
       # Database setup
-      - run: RAILS_ENV=test bundle exec rake db:create
-      - run: RAILS_ENV=test bundle exec rake db:schema:load
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
 
       # run tests!
       - run:
