@@ -55,3 +55,8 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+      - run:
+          name: run Rubocop
+          command: |
+            bundle exec rubocop
