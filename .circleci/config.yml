@@ -10,7 +10,6 @@ jobs:
       - image: circleci/ruby:2.4.1-node-browsers
       - image: circleci/postgres:10.4-alpine
         environment:
-          POSTGRES_USER: root
           POSTGRES_DB: fine_test
 
     working_directory: ~/repo
