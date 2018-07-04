@@ -10,3 +10,6 @@ RESTful API for Vine / Instagram clone app.
 ### Testing
 * RSpec
 * Shoulda Matchers
+
+### Code style
+Code follows *Ruby Style Guide*. The **Rubocop** running in CircleCI makes sure it does.
