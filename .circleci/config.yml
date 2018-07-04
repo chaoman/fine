@@ -77,7 +77,7 @@ jobs:
       - run:
           name: Migrate the DB
           command: |
-            heroku run rake db:migrate
+            heroku run rake db:migrate --app $HEROKU_APP_NAME
 
 workflows:
   version: 2
