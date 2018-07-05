@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :post do
+    description 'Nice sunset over #bangkok'
+    location nil
+    user nil
+  end
   factory :location do
     address 'Poznan, Poland'
     lat 1.5

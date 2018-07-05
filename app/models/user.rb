@@ -1,6 +1,8 @@
-# Model of User class
+# Model of +User+ entity
 class User < ApplicationRecord
   include ActiveModel::Validations
+
+  has_many :posts
 
   has_secure_password
 
