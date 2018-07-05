@@ -13,3 +13,6 @@ RESTful API for Vine / Instagram clone app.
 
 ### Code style
 Code follows *Ruby Style Guide*. The **Rubocop** running in CircleCI makes sure it does.
+
+### Demo
+[Click here](http://fine-api.herokuapp.com)
