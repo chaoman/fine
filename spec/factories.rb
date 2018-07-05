@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :location do
-    address "MyString"
+    address 'Poznan, Poland'
     lat 1.5
     lng 1.5
   end
