@@ -1,13 +1,12 @@
 FactoryBot.define do
-  factory :post do
-    description 'Nice sunset over #bangkok'
-    location nil
-    user nil
-  end
   factory :location do
     address 'Poznan, Poland'
     lat 1.5
     lng 1.5
+  end
+  factory :post do
+    description 'Nice sunset over #bangkok'
+    media { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/testing.jpg'), 'image/jpeg') }
   end
   factory :user do
     username 'schoolboytom'

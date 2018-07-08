@@ -13,10 +13,6 @@ gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.7.2'
-  gem 'database_cleaner'
-  gem 'factory_bot_rails'
-  gem 'json_spec'
 end
 
 group :development do
@@ -29,6 +25,10 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'rspec-rails', '~> 3.7.2'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'json_spec'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
