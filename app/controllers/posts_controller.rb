@@ -1,5 +1,15 @@
 # Controller for +Post+ model
 class PostsController < ApplicationController
+  POSTS_PER_PAGE = 10
+
+  def index
+    @user_posts = current_user.posts
+                              .order(created_at: :desc)
+                              .limit(POSTS_PER_PAGE)
+                              .offset(pagination_params[:page] || 0)
+    render json: @user_posts.map(&:serialized)
+  end
+
   def create
     post = current_user.posts.new post_params
     if post.save
@@ -20,5 +30,9 @@ class PostsController < ApplicationController
         lng
       ]
     )
+  end
+
+  def pagination_params
+    params.permit(:page)
   end
 end

@@ -86,4 +86,5 @@ Metrics/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/models/user_spec.rb'
+    - 'spec/requests/user_spec.rb'
     - 'spec/requests/users_spec.rb'

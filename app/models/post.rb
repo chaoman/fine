@@ -8,13 +8,11 @@ class Post < ApplicationRecord
   validates_presence_of :description
   validates_presence_of :location
 
-  def serialized_json
-    serialized.serialized_json
-  end
-
-  private
-
   def serialized
     PostSerializer.new(self)
+  end
+
+  def serialized_json
+    serialized.serialized_json
   end
 end

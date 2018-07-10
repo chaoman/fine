@@ -12,6 +12,10 @@ class User < ApplicationRecord
   validates :email, presence: true, email: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 7, maximum: 64 }
 
+  def serialized
+    UserSerializer.new(self)
+  end
+
   def serialized_json
     serialized.serialized_json
   end
@@ -26,11 +30,5 @@ class User < ApplicationRecord
 
   def following?(user_to_check)
     following.find_by(followed_id: user_to_check.id).present?
-  end
-
-  private
-
-  def serialized
-    UserSerializer.new(self)
   end
 end
