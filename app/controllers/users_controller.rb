@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   def create
     user = User.new user_params
     if user.save
-      user_serialized = UserSerializer.new user
-      render json: user_serialized.serialized_json
+      render json: user.serialized_json
     else
       respond_with_error(:bad_request, user.errors)
     end

@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
   describe 'following functionality' do
     let!(:second_valid_user) { create(:user, username: 'icecube3', email: 'icecube3@gmail.com') }
     context 'when there are no followers' do
-      it { expect(@valid_user.following.count). to eq(0) }
+      it { expect(@valid_user.following.count).to eq(0) }
     end
     context 'when following another user' do
       before { @valid_user.follow second_valid_user }

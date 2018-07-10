@@ -2,9 +2,8 @@
 class PostsController < ApplicationController
   def create
     post = current_user.posts.new post_params
-    if post.save!
-      post_serialized = PostSerializer.new post
-      render json: post_serialized.serialized_json
+    if post.save
+      render json: post.serialized_json
     else
       respond_with_error(:bad_request, post.errors)
     end

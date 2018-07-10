@@ -13,9 +13,8 @@ RSpec.describe 'Posts', type: :request do
     }.to_json
   end
 
-  before { post posts_path, params: request_body, headers: signed_in_headers }
-
   context 'when creates new post' do
+    before { post posts_path, params: request_body, headers: signed_in_headers }
     it { expect(response).to have_http_status 200 }
     let!(:response_body) { JSON.parse response.body }
     let!(:response_post_description) { response_body['data']['attributes']['description'] }
