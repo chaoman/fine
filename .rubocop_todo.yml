@@ -82,3 +82,7 @@ Style/NumericLiterals:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 112
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/models/user_spec.rb'
