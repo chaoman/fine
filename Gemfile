@@ -29,6 +29,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'json_spec'
+  gem 'rspec_api_documentation'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
