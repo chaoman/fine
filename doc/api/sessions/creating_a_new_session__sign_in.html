@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Users API</title>
+    <title>Sessions API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Users API</h1>
+      <h1>Sessions API</h1>
 
       <div class="article">
-        <h2>Creating a new user</h2>
-        <h3>POST /users</h3>
+        <h2>Creating a new session / Sign in</h2>
+        <h3>POST /sessions</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,26 +123,18 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">user[username]</span>
+                    <span class="name">auth[email]</span>
                 </td>
                 <td>
-                  <span class="description">User username</span>
+                  <span class="description">Auth email</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">user[email]</span>
+                    <span class="name">auth[password]</span>
                 </td>
                 <td>
-                  <span class="description">User email</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">user[password]</span>
-                </td>
-                <td>
-                  <span class="description">User password</span>
+                  <span class="description">Auth password</span>
                 </td>
               </tr>
             </tbody>
@@ -157,33 +149,26 @@ Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /users</pre>
+          <pre class="request route highlight">POST /sessions</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">user[username]=schoolboytom&user[email]=tom%40schoolboy.io&user[password]=BlahBlahBlah2%21</pre>
+            <pre class="request body">auth[email]=tom%40schoolboy.io&auth[password]=BlahBlahBlah2%21</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;5c68e36e437d33a7850659e99eb62449&quot;
+ETag: W/&quot;ce0147b1635febc240dfc57e19660abf&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: f57b9f17-2995-4cfc-b78c-673ec5e9d03c
-X-Runtime: 0.009053
-Content-Length: 101</pre>
+X-Request-Id: 7638f864-1ca1-4394-8c89-656b97d25676
+X-Runtime: 0.017471
+Content-Length: 98</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;data&quot;: {
-    &quot;id&quot;: &quot;2&quot;,
-    &quot;type&quot;: &quot;user&quot;,
-    &quot;attributes&quot;: {
-      &quot;username&quot;: &quot;schoolboytom&quot;,
-      &quot;email&quot;: &quot;tom@schoolboy.io&quot;
-    }
-  }
+  &quot;access_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.9Nk4WB4aWtI_BQ5Y8ZElhC6ASy0nlWoNTbvrUocdqDQ&quot;
 }</pre>
       </div>
     </div>

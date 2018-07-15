@@ -11,8 +11,14 @@ RESTful API for Vine / Instagram clone app.
 
 ### Testing
 
+Stack:
 * RSpec
 * Shoulda Matchers
+
+Run tests:
+```sh
+$ rake
+```
 
 ### Getting started
 
@@ -32,3 +38,12 @@ Code follows *Ruby Style Guide*. The **Rubocop** running in CircleCI makes sure 
 ### Demo
 
 [Click here](http://fine-api.herokuapp.com)
+
+### Docs
+
+[Fine Docs](http://mrcnk.me/fine)
+
+To generate docs from RSpec acceptance tests:
+```sh
+$ rspec spec/acceptance --format RspecApiDocumentation::ApiFormatter
+```
