@@ -63,8 +63,9 @@ jobs:
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
+            ./cc-test-reporter before-build
             bundle exec rspec
+            ./cc-test-reporter after-build --exit-code $?
 
       # collect reports
       - store_test_results:
