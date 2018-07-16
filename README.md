@@ -1,6 +1,7 @@
 # Fine
 
 ![CircleCI](https://img.shields.io/circleci/project/github/mrcnk/fine.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/edd5076871dea4d5fc80/maintainability)](https://codeclimate.com/github/mrcnk/fine/maintainability)
 
 RESTful API for Vine / Instagram clone app.
 

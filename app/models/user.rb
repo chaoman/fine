@@ -12,6 +12,10 @@ class User < ApplicationRecord
   validates :email, presence: true, email: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 7, maximum: 64 }
 
+  def auth_token
+    Auth.issue user: id
+  end
+
   def serialized
     UserSerializer.new(self)
   end

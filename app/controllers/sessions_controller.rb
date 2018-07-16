@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email auth_params[:email]
     respond_with_error(:bad_request, t('errors.no_user')) && return unless user
     if user&.authenticate auth_params[:password]
-      jwt = Auth.issue user: user.id
+      jwt = user.auth_token
       render json: { access_token: jwt }
     else
       respond_with_error :bad_request

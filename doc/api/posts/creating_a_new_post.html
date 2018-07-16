@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sessions API</title>
+    <title>Posts API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Sessions API</h1>
+      <h1>Posts API</h1>
 
       <div class="article">
-        <h2>Creating a new session / Sign in</h2>
-        <h3>POST /sessions</h3>
+        <h2>Creating a new post</h2>
+        <h3>POST /posts</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,18 +123,42 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">auth[email]</span>
+                    <span class="name">post[description]</span>
                 </td>
                 <td>
-                  <span class="description">Auth email</span>
+                  <span class="description">Post description</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">auth[password]</span>
+                    <span class="name">post[location_attributes][address]</span>
                 </td>
                 <td>
-                  <span class="description">Auth password</span>
+                  <span class="description">Post location attributes address</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">post[location_attributes][lat]</span>
+                </td>
+                <td>
+                  <span class="description">Post location attributes lat</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">post[location_attributes][lng]</span>
+                </td>
+                <td>
+                  <span class="description">Post location attributes lng</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">post[media]</span>
+                </td>
+                <td>
+                  <span class="description">Post media</span>
                 </td>
               </tr>
             </tbody>
@@ -144,31 +168,40 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.9Nk4WB4aWtI_BQ5Y8ZElhC6ASy0nlWoNTbvrUocdqDQ
+Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /sessions</pre>
+          <pre class="request route highlight">POST /posts</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">auth[email]=tom%40schoolboy.io&auth[password]=BlahBlahBlah2%21</pre>
+            <pre class="request body">post[description]=Nice+sunset+over+%23bangkok&post[location_attributes][address]=Poznan%2C+Poland&post[location_attributes][lat]=1.5&post[location_attributes][lng]=1.5&post[media]=%23%3CActiveStorage%3A%3AAttached%3A%3AOne%3A0x007fb9d5c4a658%3E</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;21b89e96e166f5fdc604398a84671dbf&quot;
+ETag: W/&quot;fc4f040b1900343bc42da876abab7a2e&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 378cfc11-a834-45c6-8188-d3cad7f1b61c
-X-Runtime: 0.006172
-Content-Length: 98</pre>
+X-Request-Id: 3af0b9e0-3781-4e04-8c25-a25b6acbc462
+X-Runtime: 0.029522
+Content-Length: 129</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;access_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoyfQ.oPQ7S2UdmpGiG41iUpdtZc4iBj7mi7BLlldY81GSoIg&quot;
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;type&quot;: &quot;post&quot;,
+    &quot;attributes&quot;: {
+      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+      &quot;user_id&quot;: 1,
+      &quot;address&quot;: &quot;Poznan, Poland&quot;
+    }
+  }
 }</pre>
       </div>
     </div>
