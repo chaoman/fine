@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jwt'
 gem 'bcrypt'
 gem 'fast_jsonapi'
+gem 'decent_exposure'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

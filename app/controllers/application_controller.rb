@@ -1,5 +1,6 @@
 # Main application controller with all the necessary before actions and methods for auth.
 class ApplicationController < ActionController::API
+  include ActionController::Helpers
   include Respondable
 
   before_action :authenticate

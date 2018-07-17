@@ -2,10 +2,11 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate
 
+  expose :user
+
   def create
-    user = User.find_by_email auth_params[:email]
     respond_with_error(:bad_request, t('errors.no_user')) && return unless user
-    if user&.authenticate auth_params[:password]
+    if user&.authenticate user_params[:password]
       jwt = user.auth_token
       render json: { access_token: jwt }
     else
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def auth_params
+  def user_params
     params.require(:auth).permit(:email, :password)
   end
 end
