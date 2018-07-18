@@ -15,12 +15,12 @@ RSpec.describe Post, type: :model do
       it { expect(post.likes.count).to eq(0) }
     end
     context 'when other user starts liking it' do
-      before { user.like post }
+      before { post.like_by user }
       it { expect(post.liked_by?(user)).to be_truthy }
     end
     context 'when other user unlikes it' do
-      before { user.like post }
-      before { user.unlike post }
+      before { post.like_by user }
+      before { post.unlike_by user }
       it { expect(post.liked_by?(user)).to be_falsey }
     end
   end

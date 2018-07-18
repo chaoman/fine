@@ -2,7 +2,7 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate
 
-  expose :user
+  expose :user, -> { User.find_by_email user_params[:email] }
 
   def create
     respond_with_error(:bad_request, t('errors.no_user')) && return unless user

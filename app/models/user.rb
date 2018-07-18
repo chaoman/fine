@@ -3,7 +3,7 @@ class User < ApplicationRecord
   include ActiveModel::Validations
 
   has_many :posts
-  has_many :likes
+  has_many :likes, as: :likeable
   has_many :followers, class_name: 'Follow', foreign_key: 'followed_id'
   has_many :following, class_name: 'Follow', foreign_key: 'follower_id'
 
@@ -31,14 +31,6 @@ class User < ApplicationRecord
 
   def unfollow(user_to_unfollow)
     following.find_by(followed_id: user_to_unfollow.id).destroy
-  end
-
-  def like(post_to_like)
-    post_to_like.likes.create(user: self)
-  end
-
-  def unlike(post_to_unlike)
-    post_to_unlike.likes.find_by(user_id: id).destroy
   end
 
   def following?(user_to_check)

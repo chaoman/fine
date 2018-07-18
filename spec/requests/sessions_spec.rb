@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :request do
-  before(:all) { @user1 = build :user }
+  let(:user) { create :user }
 
   let!(:request_body) do
     {
       auth: {
-        email: @user1.email,
-        password: @user1.password
+        email: user.email,
+        password: user.password
       }
     }.to_json
   end
