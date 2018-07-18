@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  before(:all) { @user1 = build :user }
+  let!(:valid_user) { build :user }
 
   let!(:valid_user_request_body) do
     {
       user: {
-        username: @user1.username,
-        email: @user1.email,
-        password: @user1.password
+        username: valid_user.username,
+        email: valid_user.email,
+        password: valid_user.password
       }
     }.to_json
   end
@@ -16,8 +16,8 @@ RSpec.describe 'Users', type: :request do
   let!(:invalid_user_request_body) do
     {
       user: {
-        username: @user1.username,
-        email: @user1.email,
+        username: valid_user.username,
+        email: valid_user.email,
         password: 'asd'
       }
     }.to_json
@@ -25,16 +25,14 @@ RSpec.describe 'Users', type: :request do
 
   describe 'sign up functionality' do
     context 'when creates a new user' do
-      before { User.find_by_username(@user1.username).destroy }
       before { post users_path, params: valid_user_request_body, headers: REQUEST_HEADERS }
       it { expect(response).to have_http_status 200 }
       let!(:response_json) { response.body.to_json }
-      let!(:user_instance) { User.find_by_username(@user1.username) }
+      let!(:user_instance) { User.find_by_username(valid_user.username) }
       it { expect(response_json).to be_json_eql user_instance.serialized_json.to_json }
     end
 
     context 'when fails to create a new user' do
-      before { User.find_by_username(@user1.username).destroy }
       before { post users_path, params: invalid_user_request_body, headers: REQUEST_HEADERS }
       it { expect(response).to have_http_status 400 }
     end
@@ -44,7 +42,7 @@ RSpec.describe 'Users', type: :request do
     before { get me_path, headers: signed_in_headers }
     it { expect(response).to have_http_status 200 }
     let!(:response_json) { response.body.to_json }
-    let!(:user_instance) { User.find_by_username(@user1.username) }
+    let!(:user_instance) { User.find_by_username(valid_user.username) }
     it { expect(response_json).to be_json_eql user_instance.serialized_json.to_json }
   end
 end
