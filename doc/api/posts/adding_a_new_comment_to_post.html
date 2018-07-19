@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Users API</title>
+    <title>Posts API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,45 +106,68 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Users API</h1>
+      <h1>Posts API</h1>
 
       <div class="article">
-        <h2>Fetching current user data</h2>
-        <h3>GET /users/me</h3>
+        <h2>Adding a new comment to post</h2>
+        <h3>POST /posts/:post_id/comments</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">comment[message]</span>
+                </td>
+                <td>
+                  <span class="description">Comment message</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjo1fQ.NR_t2Q4WYlbXXR15Bau5lcqrVoJeHPcxaq92DmufGRE
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.9Nk4WB4aWtI_BQ5Y8ZElhC6ASy0nlWoNTbvrUocdqDQ
 Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /users/me</pre>
+          <pre class="request route highlight">POST /posts/1/comments</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">comment[message]=Really+nice+photo</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;93f1457571ffb9d428b6e18b45b97b13&quot;
+ETag: W/&quot;fc4f040b1900343bc42da876abab7a2e&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 50b0f79e-b122-4ccb-b6fa-c03a5bb463bc
-X-Runtime: 0.002802
-Content-Length: 101</pre>
+X-Request-Id: 6d18093e-4e43-4a34-8df5-5ef2999ea113
+X-Runtime: 0.056150
+Content-Length: 129</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: {
-    &quot;id&quot;: &quot;5&quot;,
-    &quot;type&quot;: &quot;user&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;type&quot;: &quot;post&quot;,
     &quot;attributes&quot;: {
-      &quot;username&quot;: &quot;schoolboytom&quot;,
-      &quot;email&quot;: &quot;tom@schoolboy.io&quot;
+      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+      &quot;user_id&quot;: 1,
+      &quot;address&quot;: &quot;Poznan, Poland&quot;
     }
   }
 }</pre>

@@ -1,6 +1,6 @@
 # Controller for +User+ session management
 class SessionsController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, only: [:create]
 
   expose :user, -> { User.find_by_email user_params[:email] }
 

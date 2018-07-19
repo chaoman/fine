@@ -3,7 +3,8 @@ class User < ApplicationRecord
   include ActiveModel::Validations
 
   has_many :posts
-  has_many :likes, as: :likeable
+  has_many :likes
+  has_many :comments, dependent: :destroy
   has_many :followers, class_name: 'Follow', foreign_key: 'followed_id'
   has_many :following, class_name: 'Follow', foreign_key: 'follower_id'
 

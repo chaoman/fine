@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index create]
 
   scope :posts do
-    put ':id/like', to: 'posts#like'
+    put ':post_id/like', to: 'posts#like'
+    post ':post_id/comments', to: 'comments#create'
   end
 
   scope :users do

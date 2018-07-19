@@ -1,9 +1,11 @@
 # Model for +Post+ entity
 class Post < ApplicationRecord
-  belongs_to :user
+  include Likeable
+
+  belongs_to :user, foreign_key: :user_id
   has_one :location, validate: true
-  has_many :likes, as: :likeable
   has_one_attached :media
+  has_many :comments
   accepts_nested_attributes_for :location, allow_destroy: true
 
   validates_presence_of :description

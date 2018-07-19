@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    if post.save!
+    if post.save
       render json: post.serialized_json
     else
       respond_with_error(:bad_request, post.errors)
