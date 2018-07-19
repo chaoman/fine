@@ -1,3 +1,4 @@
+# Serializer for Comment entity
 class CommentSerializer
   include FastJsonapi::ObjectSerializer
   attributes :message
