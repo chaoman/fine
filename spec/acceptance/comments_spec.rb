@@ -28,4 +28,17 @@ resource 'Posts' do
       end
     end
   end
+
+  delete '/posts/:post_id/comments/:id' do
+    context '200' do
+      let(:post_id) { post.id }
+      let(:comment) { post.comments.create(user_id: user.id, message: 'Example message') }
+      let(:id) { comment.id }
+      example 'Deleting an existing comment' do
+        do_request
+
+        expect(status).to eq(200)
+      end
+    end
+  end
 end

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>API Documentation</title>
-  <meta charset="utf-8">
-  <style>
-    
+  <head>
+    <title>Posts API</title>
+    <meta charset="utf-8">
+    <style>
+      
 body {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 13px;
@@ -39,7 +39,7 @@ pre {
 
 td.required .name:after {
   float: right;
-  content: &quot;required&quot;;
+  content: "required";
   font-weight: normal;
   color: #F08080;
 }
@@ -102,54 +102,55 @@ table th, table td {
   text-align: left;
 }
 
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>API Documentation</h1>
-  
-  <div class="article">
-    <h2>Posts</h2>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Posts API</h1>
 
-    <ul>
-      <li>
-        <a href="posts/adding_a_new_comment_to_post.html">Adding a new comment to post</a>
-      </li>
-      <li>
-        <a href="posts/creating_a_new_post.html">Creating a new post</a>
-      </li>
-      <li>
-        <a href="posts/deleting_an_existing_comment.html">Deleting an existing comment</a>
-      </li>
-      <li>
-        <a href="posts/liking_the_post.html">Liking the post</a>
-      </li>
-      <li>
-        <a href="posts/unliking_the_post.html">Unliking the post</a>
-      </li>
-    </ul>
-  </div>
-  <div class="article">
-    <h2>Sessions</h2>
+      <div class="article">
+        <h2>Deleting an existing comment</h2>
+        <h3>DELETE /posts/:post_id/comments/:id</h3>
 
-    <ul>
-      <li>
-        <a href="sessions/creating_a_new_session__sign_in.html">Creating a new session / Sign in</a>
-      </li>
-    </ul>
-  </div>
-  <div class="article">
-    <h2>Users</h2>
 
-    <ul>
-      <li>
-        <a href="users/creating_a_new_user.html">Creating a new user</a>
-      </li>
-      <li>
-        <a href="users/fetching_current_user_data.html">Fetching current user data</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoyfQ.oPQ7S2UdmpGiG41iUpdtZc4iBj7mi7BLlldY81GSoIg
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">DELETE /posts/2/comments/2</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;f5799579a6ba41dd20c477a5b5f6879a&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: c7564e1d-337e-4cfa-91ff-2b8c7524045a
+X-Runtime: 0.017927
+Content-Length: 129</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;2&quot;,
+    &quot;type&quot;: &quot;post&quot;,
+    &quot;attributes&quot;: {
+      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+      &quot;user_id&quot;: 2,
+      &quot;address&quot;: &quot;Poznan, Poland&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
 </html>

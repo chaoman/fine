@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>API Documentation</title>
-  <meta charset="utf-8">
-  <style>
-    
+  <head>
+    <title>Posts API</title>
+    <meta charset="utf-8">
+    <style>
+      
 body {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 13px;
@@ -39,7 +39,7 @@ pre {
 
 td.required .name:after {
   float: right;
-  content: &quot;required&quot;;
+  content: "required";
   font-weight: normal;
   color: #F08080;
 }
@@ -102,54 +102,55 @@ table th, table td {
   text-align: left;
 }
 
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>API Documentation</h1>
-  
-  <div class="article">
-    <h2>Posts</h2>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Posts API</h1>
 
-    <ul>
-      <li>
-        <a href="posts/adding_a_new_comment_to_post.html">Adding a new comment to post</a>
-      </li>
-      <li>
-        <a href="posts/creating_a_new_post.html">Creating a new post</a>
-      </li>
-      <li>
-        <a href="posts/deleting_an_existing_comment.html">Deleting an existing comment</a>
-      </li>
-      <li>
-        <a href="posts/liking_the_post.html">Liking the post</a>
-      </li>
-      <li>
-        <a href="posts/unliking_the_post.html">Unliking the post</a>
-      </li>
-    </ul>
-  </div>
-  <div class="article">
-    <h2>Sessions</h2>
+      <div class="article">
+        <h2>Unliking the post</h2>
+        <h3>PUT /posts/:post_id/unlike</h3>
 
-    <ul>
-      <li>
-        <a href="sessions/creating_a_new_session__sign_in.html">Creating a new session / Sign in</a>
-      </li>
-    </ul>
-  </div>
-  <div class="article">
-    <h2>Users</h2>
 
-    <ul>
-      <li>
-        <a href="users/creating_a_new_user.html">Creating a new user</a>
-      </li>
-      <li>
-        <a href="users/fetching_current_user_data.html">Fetching current user data</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjo0fQ.JVvBjl5hSBUidMCPpI2IV4I-pRZDFiZcrBoq9Wh-qt8
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PUT /posts/4/unlike</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;f5993c7a5b2f5339aaaa1ad710802868&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 3ab4124e-818b-4386-83ac-5c05673ef351
+X-Runtime: 0.015210
+Content-Length: 129</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;4&quot;,
+    &quot;type&quot;: &quot;post&quot;,
+    &quot;attributes&quot;: {
+      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+      &quot;user_id&quot;: 4,
+      &quot;address&quot;: &quot;Poznan, Poland&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
 </html>
