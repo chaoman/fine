@@ -109,82 +109,48 @@ table th, table td {
       <h1>Users API</h1>
 
       <div class="article">
-        <h2>Creating a new user</h2>
-        <h3>POST /users</h3>
+        <h2>Fetching other user&#39;s posts</h2>
+        <h3>GET /users/:id/posts</h3>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="required">
-                    <span class="name">user[username]</span>
-                </td>
-                <td>
-                  <span class="description">User username</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">user[email]</span>
-                </td>
-                <td>
-                  <span class="description">User email</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">user[password]</span>
-                </td>
-                <td>
-                  <span class="description">User password</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
-Content-Type: application/x-www-form-urlencoded
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxNH0.nN47_gK66hYt_KQbZ6qq5n1_HhVKygCVh5JVf-AuRkA
+Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /users</pre>
+          <pre class="request route highlight">GET /users/14/posts</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">user[username]=schoolboytom&user[email]=tom%40schoolboy.io&user[password]=BlahBlahBlah2%21</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;e050c47d89e1d59c9c4ac0222bc56155&quot;
+ETag: W/&quot;64cb2676ca351af7bca4b384925f9166&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 3886615c-36cd-4474-b85a-084f63c627c4
-X-Runtime: 0.009093
-Content-Length: 102</pre>
+X-Request-Id: 6a913762-811f-4c16-9a8d-83803108c8e6
+X-Runtime: 0.010990
+Content-Length: 132</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{
-  &quot;data&quot;: {
-    &quot;id&quot;: &quot;11&quot;,
-    &quot;type&quot;: &quot;user&quot;,
-    &quot;attributes&quot;: {
-      &quot;username&quot;: &quot;schoolboytom&quot;,
-      &quot;email&quot;: &quot;tom@schoolboy.io&quot;
+              <pre class="response body">[
+  {
+    &quot;data&quot;: {
+      &quot;id&quot;: &quot;6&quot;,
+      &quot;type&quot;: &quot;post&quot;,
+      &quot;attributes&quot;: {
+        &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+        &quot;user_id&quot;: 14,
+        &quot;address&quot;: &quot;Poznan, Poland&quot;
+      }
     }
   }
-}</pre>
+]</pre>
       </div>
     </div>
   </body>

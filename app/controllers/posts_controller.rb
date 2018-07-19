@@ -2,7 +2,7 @@
 class PostsController < ApplicationController
   include Paginatable
 
-  expose :posts, -> { current_user.posts }
+  expose :posts, -> { params[:id] ? Post.where(user_id: params[:id]) : current_user.posts }
   expose :post, parent: :current_user
 
   def index

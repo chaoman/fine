@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    render json: User.find(params[:id]).serialized_json
+  end
+
   private
 
   def user_params

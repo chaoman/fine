@@ -38,4 +38,30 @@ resource 'Users' do
       end
     end
   end
+
+  get '/users/:id' do
+    let(:auth_token) { jwt_bearer }
+    let(:user) { create :user }
+    context '200' do
+      let(:id) { user.id }
+      example 'Fetching other user data' do
+        do_request
+        expect(status).to eq(200)
+      end
+    end
+  end
+
+  get '/users/:id/posts' do
+    let(:auth_token) { jwt_bearer }
+    let(:user) { create :user }
+    let(:location) { build :location }
+    before { create(:post, user: user, location: location) }
+    context '200' do
+      let(:id) { user.id }
+      example 'Fetching other user\'s posts' do
+        do_request
+        expect(status).to eq(200)
+      end
+    end
+  end
 end
