@@ -152,11 +152,11 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;fc4f040b1900343bc42da876abab7a2e&quot;
+ETag: W/&quot;607cd7d34b036acf80ca031749f582a6&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 2749baae-24e5-4927-8b7d-ad26aee18747
-X-Runtime: 0.058576
-Content-Length: 129</pre>
+X-Request-Id: 140cd0ba-e563-48ed-8660-a49a86a4cb20
+X-Runtime: 0.096409
+Content-Length: 244</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -167,7 +167,20 @@ Content-Length: 129</pre>
     &quot;attributes&quot;: {
       &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
       &quot;user_id&quot;: 1,
-      &quot;address&quot;: &quot;Poznan, Poland&quot;
+      &quot;address&quot;: &quot;Poznan, Poland&quot;,
+      &quot;likes&quot;: 0,
+      &quot;comments&quot;: [
+        {
+          &quot;data&quot;: {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;comment&quot;,
+            &quot;attributes&quot;: {
+              &quot;message&quot;: &quot;Really nice photo&quot;,
+              &quot;likes&quot;: 0
+            }
+          }
+        }
+      ]
     }
   }
 }</pre>
