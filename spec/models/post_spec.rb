@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let!(:user) { create :user }
+  let(:user) { create :user }
   it { is_expected.to belong_to :user }
   it { is_expected.to have_one :location }
   it { is_expected.to have_many :likes }
   it { is_expected.to validate_presence_of :description }
 
   describe 'liking functionality' do
-    let!(:second_valid_user) { create(:user, username: 'icecube3', email: 'icecube3@gmail.com') }
-    let!(:location) { build :location }
-    let!(:post) { create(:post, user: user, location: location) }
+    let(:second_valid_user) { create(:user, username: 'icecube3', email: 'icecube3@gmail.com') }
+    let(:location) { build :location }
+    let(:post) { create(:post, user: user, location: location) }
     context 'when no one likes it' do
       it { expect(post.likes.count).to eq(0) }
     end

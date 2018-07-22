@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   scope :posts do
     post ':post_id/comments', to: 'comments#create'
     delete ':post_id/comments/:id', to: 'comments#destroy'
-    put ':post_id/like', to: 'likes#like_post'
-    put ':post_id/unlike', to: 'likes#unlike_post'
+    put ':post_id/like', to: 'likes#like_post', as: 'like_post'
+    put ':post_id/unlike', to: 'likes#unlike_post', as: 'unlike_post'
   end
   resources :posts, only: %i[index create]
 end

@@ -1,6 +1,8 @@
 # Model of +User+ entity
 class User < ApplicationRecord
   include ActiveModel::Validations
+  include Serializable
+  serializable serializer_class: UserSerializer
 
   has_many :posts
   has_many :likes
@@ -16,14 +18,6 @@ class User < ApplicationRecord
 
   def auth_token
     Auth.issue user: id
-  end
-
-  def serialized
-    UserSerializer.new(self)
-  end
-
-  def serialized_json
-    serialized.serialized_json
   end
 
   def follow(user_to_follow)

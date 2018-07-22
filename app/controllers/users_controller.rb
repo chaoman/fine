@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   expose :user
 
   def me
-    user_serialized = UserSerializer.new current_user
-    render json: user_serialized.serialized_json
+    user_serialized = current_user.serialized_json(current_user: current_user.present?)
+    render json: user_serialized
   end
 
   def create

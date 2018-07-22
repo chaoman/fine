@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Sessions', type: :request do
   let(:user) { create :user }
 
-  let!(:request_body) do
+  let(:request_body) do
     {
       auth: {
         email: user.email,
@@ -16,7 +16,7 @@ RSpec.describe 'Sessions', type: :request do
 
   context 'when creates new session' do
     it { expect(response).to have_http_status 200 }
-    let!(:response_token) { response.body.to_json['access_token'] }
+    let(:response_token) { response.body.to_json['access_token'] }
     it { expect(response_token).to be_present }
   end
 end

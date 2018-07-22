@@ -12,6 +12,6 @@ class PostSerializer
   end
 
   attribute :comments do |object|
-    object.comments.map(&:serializable_hash)
+    object.comments.map(&:as_hash)
   end
 end

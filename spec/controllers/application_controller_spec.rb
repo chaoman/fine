@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationController, type: :controller do
-  let!(:user) { create :user }
-  let!(:jwt) { Auth.issue user: user.id }
-  before { request.env['HTTP_AUTHORIZATION'] = 'Bearer ' << jwt }
+  let(:user) { create :user }
+  before { request.env['HTTP_AUTHORIZATION'] = 'Bearer ' << user.auth_token }
 
   describe '#authenticate' do
     context 'when gets Bearer JWT token and logs user in' do

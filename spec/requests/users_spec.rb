@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  let!(:valid_user) { build :user }
+  let(:valid_user) { build :user }
 
-  let!(:valid_user_request_body) do
+  let(:valid_user_request_body) do
     {
       user: {
         username: valid_user.username,
@@ -13,7 +13,7 @@ RSpec.describe 'Users', type: :request do
     }.to_json
   end
 
-  let!(:invalid_user_request_body) do
+  let(:invalid_user_request_body) do
     {
       user: {
         username: valid_user.username,
@@ -27,8 +27,8 @@ RSpec.describe 'Users', type: :request do
     context 'when creates a new user' do
       before { post users_path, params: valid_user_request_body, headers: REQUEST_HEADERS }
       it { expect(response).to have_http_status 200 }
-      let!(:response_json) { response.body.to_json }
-      let!(:user_instance) { User.find_by_username(valid_user.username) }
+      let(:response_json) { response.body.to_json }
+      let(:user_instance) { User.find_by_username(valid_user.username) }
       it { expect(response_json).to be_json_eql user_instance.serialized_json.to_json }
     end
 
@@ -41,8 +41,9 @@ RSpec.describe 'Users', type: :request do
   context 'when fetches own profile' do
     before { get me_path, headers: signed_in_headers }
     it { expect(response).to have_http_status 200 }
-    let!(:response_json) { response.body.to_json }
-    let!(:user_instance) { User.find_by_username(valid_user.username) }
-    it { expect(response_json).to be_json_eql user_instance.serialized_json.to_json }
+    let(:response_json) { response.body.to_json }
+    let(:user_instance) { User.find_by_username(valid_user.username) }
+    let(:serialized_user) { user_instance.serialized_json(current_user: user_instance).to_json }
+    it { expect(response_json).to be_json_eql serialized_user }
   end
 end

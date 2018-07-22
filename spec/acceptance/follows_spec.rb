@@ -3,7 +3,7 @@ require 'rspec_api_documentation/dsl'
 
 resource 'Users' do
   let(:user) { create :user }
-  let(:second_user) { create(:user, username: 'randomguy123', email: 'randomguy123@gmail.com') }
+  let(:second_user) { create :random_user }
   let(:auth_token) { 'Bearer ' << user.auth_token }
 
   header 'Authorization', :auth_token

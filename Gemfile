@@ -29,6 +29,7 @@ group :test do
   gem 'rspec-rails', '~> 3.7.2'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'json_spec'
   gem 'rspec_api_documentation'
 end

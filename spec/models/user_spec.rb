@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:valid_user) { create :user }
+  let(:valid_user) { create :user }
   it { is_expected.to have_secure_password }
   it { is_expected.to have_many :posts }
   it { is_expected.to have_many :likes }
@@ -13,12 +13,12 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_uniqueness_of :email }
 
   context 'when password validation failed' do
-    let!(:invalid_user) { build(:user, password: 'asd') }
+    let(:invalid_user) { build(:user, password: 'asd') }
     it { expect(invalid_user).not_to be_valid }
   end
 
   describe 'following functionality' do
-    let!(:second_valid_user) { create(:user, username: 'icecube3', email: 'icecube3@gmail.com') }
+    let(:second_valid_user) { create(:user, username: 'icecube3', email: 'icecube3@gmail.com') }
     context 'when there are no followers' do
       it { expect(valid_user.following.count).to eq(0) }
     end

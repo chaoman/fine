@@ -1,6 +1,8 @@
 # Model for +Post+ entity
 class Post < ApplicationRecord
   include Likeable
+  include Serializable
+  serializable serializer_class: PostSerializer
 
   belongs_to :user, foreign_key: :user_id
   has_one :location, validate: true
@@ -10,14 +12,6 @@ class Post < ApplicationRecord
 
   validates_presence_of :description
   validates_presence_of :location
-
-  def serialized
-    PostSerializer.new(self)
-  end
-
-  def serialized_json
-    serialized.serialized_json
-  end
 
   def like_by(user)
     likes.create(user: user, likeable: self)
