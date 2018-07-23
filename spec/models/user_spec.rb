@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'following functionality' do
-    let(:second_valid_user) { create(:user, username: 'icecube3', email: 'icecube3@gmail.com') }
+    let(:second_valid_user) { create(:random_user) }
     context 'when there are no followers' do
       it { expect(valid_user.following.count).to eq(0) }
     end
@@ -30,6 +30,15 @@ RSpec.describe User, type: :model do
       before { valid_user.follow second_valid_user }
       before { valid_user.unfollow second_valid_user }
       it { expect(valid_user.following?(second_valid_user)).to be_falsey }
+    end
+    context 'when users have no common activity' do
+      it { expect(valid_user.relationship_strength(second_valid_user)).to eq(nil.to_f) }
+    end
+    context 'when users have common activity' do
+      let(:location) { build :location }
+      let(:post) { create(:post, user: valid_user, location: location) }
+      before { post.like_by second_valid_user }
+      it { expect(valid_user.relationship_strength(second_valid_user)).to be_positive }
     end
   end
 end

@@ -16,4 +16,8 @@ Rails.application.routes.draw do
     put ':post_id/unlike', to: 'likes#unlike_post', as: 'unlike_post'
   end
   resources :posts, only: %i[index create]
+
+  scope :feed do
+    get '', to: 'feeds#index'
+  end
 end

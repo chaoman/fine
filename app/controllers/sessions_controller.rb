@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
   def create
     respond_with_error(:bad_request, t('errors.no_user')) && return unless user
     if user&.authenticate user_params[:password]
-      jwt = user.auth_token
-      render json: { access_token: jwt }
+      user_serialized = user.serialized_json(current_user: true)
+      render json: user_serialized
     else
-      respond_with_error :bad_request
+      respond_with_error(:bad_request, t('errors.invalid_email_or_password'))
     end
   end
 

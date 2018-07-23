@@ -18,6 +18,7 @@ module Fine
     config.load_defaults 5.2
 
     config.eager_load_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('app/services')
 
     config.api_only = true
   end

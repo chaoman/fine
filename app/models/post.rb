@@ -13,15 +13,7 @@ class Post < ApplicationRecord
   validates_presence_of :description
   validates_presence_of :location
 
-  def like_by(user)
-    likes.create(user: user, likeable: self)
-  end
-
-  def unlike_by(user)
-    likes.find_by(user: user).destroy
-  end
-
-  def liked_by?(user)
-    likes.find_by(user: user).present?
+  def relevance
+    FeedService.post_relevance(self)
   end
 end

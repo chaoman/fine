@@ -6,3 +6,4 @@ en:
       bad_request: 'Bad Request'
   errors:
     no_user: User doesn't exist
+    invalid_email_or_password: Invalid email or password

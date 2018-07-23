@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   expose :user
 
   def me
-    user_serialized = current_user.serialized_json(current_user: current_user.present?)
+    user_serialized = current_user.serialized_json(current_user: true)
     render json: user_serialized
   end
 
