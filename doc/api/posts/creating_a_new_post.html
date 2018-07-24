@@ -168,7 +168,7 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.C01HgfOGdPiJsPO6smZ7MihOFjXRpCcVP_SH1CXESIs
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxNX0.SW8GHavNjZmUwiqlvPtEOJJgYZdCe4t70E66BuyKIm8
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
@@ -178,35 +178,45 @@ Cookie: </pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">post[description]=Nice+sunset+over+%23bangkok&post[location_attributes][address]=Poznan%2C+Poland&post[location_attributes][lat]=1.5&post[location_attributes][lng]=1.5&post[media]=%23%3CActiveStorage%3A%3AAttached%3A%3AOne%3A0x007feebad311b0%3E</pre>
+            <pre class="request body">post[description]=You+know+what+the+problem+is+with+everybody%3F+They+all+just+want+to+hear+what+they+already+believe.+No+one+ever+wants+to+hear+the+truth&post[location_attributes][address]=Apt.+195+211+Dooley+Court%2C+Harberstad%2C+MA+18735-5752&post[location_attributes][lat]=1.5&post[location_attributes][lng]=1.5&post[media]=%23%3CActiveStorage%3A%3AAttached%3A%3AOne%3A0x007fbe0ebcc888%3E</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;7422365e1958226d06e3ce94432e17af&quot;
+ETag: W/&quot;e9da7bc0ff29e0768a955b20c7b89f64&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: f46328bf-58a2-4517-a65c-895049cb7315
-X-Runtime: 0.019196
-Content-Length: 246</pre>
+X-Request-Id: 27dcb3af-a342-44f8-93f7-a3c3ae0a1530
+X-Runtime: 0.021456
+Content-Length: 435</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: {
-    &quot;id&quot;: &quot;6&quot;,
+    &quot;id&quot;: &quot;8&quot;,
     &quot;type&quot;: &quot;post&quot;,
     &quot;attributes&quot;: {
-      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
-      &quot;user_id&quot;: 11,
+      &quot;description&quot;: &quot;You know what the problem is with everybody? They all just want to hear what they already believe. No one ever wants to hear the truth&quot;,
+      &quot;user_id&quot;: 15,
       &quot;relevance&quot;: 0.0,
-      &quot;created_at&quot;: &quot;2018-07-24 16:50:53 UTC&quot;,
-      &quot;address&quot;: &quot;#&lt;LocationSerializer:0x007feebabb0520&gt;&quot;,
+      &quot;address&quot;: {
+        &quot;data&quot;: {
+          &quot;id&quot;: &quot;8&quot;,
+          &quot;type&quot;: &quot;location&quot;,
+          &quot;attributes&quot;: {
+            &quot;address&quot;: &quot;Apt. 195 211 Dooley Court, Harberstad, MA 18735-5752&quot;,
+            &quot;lat&quot;: 1.5,
+            &quot;lng&quot;: 1.5
+          }
+        }
+      },
       &quot;likes&quot;: 0,
       &quot;comments&quot;: [
 
       ],
-      &quot;media&quot;: null
+      &quot;media&quot;: null,
+      &quot;date&quot;: &quot;24 Jul 21:12&quot;
     }
   }
 }</pre>

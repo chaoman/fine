@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Posts API</title>
+    <title>Likes API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,24 +106,24 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Posts API</h1>
+      <h1>Likes API</h1>
 
       <div class="article">
-        <h2>Liking the post</h2>
-        <h3>PUT /posts/:post_id/like</h3>
+        <h2>Liking the comment</h2>
+        <h3>PUT /comments/:comment_id/like</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjo5fQ.xiuWLgkfP-oQrmsCNvA5xYfbS_FiBi5Gk2mkXmFzbW4
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.C01HgfOGdPiJsPO6smZ7MihOFjXRpCcVP_SH1CXESIs
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT /posts/4/like</pre>
+          <pre class="request route highlight">PUT /comments/3/like</pre>
 
 
 
@@ -131,29 +131,21 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;f90879e008466e1551a3990206964b04&quot;
+ETag: W/&quot;b934e924b78b9f8c57e377378725b03b&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 331f16c2-c5f0-4617-85ff-6cfb507cf189
-X-Runtime: 0.032156
-Content-Length: 421</pre>
+X-Request-Id: 1f9c2c5c-b7c2-4480-93a6-fad9146e42de
+X-Runtime: 0.054007
+Content-Length: 156</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: {
-    &quot;id&quot;: &quot;4&quot;,
-    &quot;type&quot;: &quot;post&quot;,
+    &quot;id&quot;: &quot;3&quot;,
+    &quot;type&quot;: &quot;comment&quot;,
     &quot;attributes&quot;: {
-      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
-      &quot;user_id&quot;: 9,
-      &quot;relevance&quot;: 0.0,
-      &quot;created_at&quot;: &quot;2018-07-24 16:50:53 UTC&quot;,
-      &quot;address&quot;: &quot;#&lt;LocationSerializer:0x007feebc3f1ad0&gt;&quot;,
-      &quot;likes&quot;: 1,
-      &quot;comments&quot;: [
-
-      ],
-      &quot;media&quot;: &quot;http://localhost/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--91a793e2de8629ffa1081067195031f23dc52d13/testing.jpg&quot;
+      &quot;message&quot;: &quot;Beer before liquor, never sicker, liquor before beer, never fear, don&#39;t do heroine&quot;,
+      &quot;likes&quot;: 1
     }
   }
 }</pre>

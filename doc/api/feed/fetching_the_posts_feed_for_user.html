@@ -112,6 +112,25 @@ table th, table td {
         <h2>Fetching the posts feed for user</h2>
         <h3>GET /feed</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">page</span>
+                </td>
+                <td>
+                  <span class="description"> page</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -130,11 +149,11 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;9f23f2110fc9f834cc1155dc631701fe&quot;
+ETag: W/&quot;029851b4be32d1c115be992513640c89&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 34973e64-27c9-48d1-af70-ae2129d546f6
-X-Runtime: 0.033268
-Content-Length: 483</pre>
+X-Request-Id: 0dc4475c-6872-4a38-9c8f-f23bb664eacb
+X-Runtime: 0.036095
+Content-Length: 633</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -144,16 +163,15 @@ Content-Length: 483</pre>
       &quot;id&quot;: &quot;3&quot;,
       &quot;type&quot;: &quot;post&quot;,
       &quot;attributes&quot;: {
-        &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+        &quot;description&quot;: &quot;That&#39;s the problem with life, either you know what you want and you don&#39;t get what you want, or you get what you want and then you don&#39;t know what you want&quot;,
         &quot;user_id&quot;: 4,
         &quot;relevance&quot;: 0.0,
-        &quot;created_at&quot;: &quot;2018-07-24T16:50:53.035Z&quot;,
         &quot;address&quot;: {
           &quot;data&quot;: {
             &quot;id&quot;: &quot;3&quot;,
             &quot;type&quot;: &quot;location&quot;,
             &quot;attributes&quot;: {
-              &quot;address&quot;: &quot;Poznan, Poland&quot;,
+              &quot;address&quot;: &quot;Apt. 195 211 Dooley Court, Harberstad, MA 18735-5752&quot;,
               &quot;lat&quot;: 1.5,
               &quot;lng&quot;: 1.5
             }
@@ -163,7 +181,8 @@ Content-Length: 483</pre>
         &quot;comments&quot;: [
 
         ],
-        &quot;media&quot;: &quot;http://localhost/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cac12ae2b9bfd0fcd81927aca346464421fab9a5/testing.jpg&quot;
+        &quot;media&quot;: &quot;http://localhost/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cac12ae2b9bfd0fcd81927aca346464421fab9a5/testing.jpg&quot;,
+        &quot;date&quot;: &quot;24 Jul 21:12&quot;
       }
     }
   }

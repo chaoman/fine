@@ -12,6 +12,7 @@ resource 'Feed' do
   header 'Authorization', :auth_token
 
   get '/feed' do
+    parameter :page, required: false
     context '200' do
       example 'Fetching the posts feed for user' do
         post.reload

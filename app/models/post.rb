@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   has_many :comments
   accepts_nested_attributes_for :location, allow_destroy: true
 
+  scope :subscribed, ->(subscribed) { where user_id: subscribed }
+
   validates_presence_of :description
   validates_presence_of :location
 

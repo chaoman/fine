@@ -131,11 +131,11 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;ca52d529b6bff280d46e47f085682fb5&quot;
+ETag: W/&quot;8e221676c6317b3aac7121d77af1c41e&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: fb71d306-e472-4979-abe0-abdc98b1c655
-X-Runtime: 0.020173
-Content-Length: 421</pre>
+X-Request-Id: 06caab0b-fa2f-4f3f-972a-aad60aad239b
+X-Runtime: 0.022361
+Content-Length: 549</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -144,16 +144,26 @@ Content-Length: 421</pre>
     &quot;id&quot;: &quot;2&quot;,
     &quot;type&quot;: &quot;post&quot;,
     &quot;attributes&quot;: {
-      &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
+      &quot;description&quot;: &quot;If you care about what other people think, you&#39;re never gonna do anything&quot;,
       &quot;user_id&quot;: 2,
       &quot;relevance&quot;: 0.0,
-      &quot;created_at&quot;: &quot;2018-07-24 16:50:52 UTC&quot;,
-      &quot;address&quot;: &quot;#&lt;LocationSerializer:0x007feeb8182050&gt;&quot;,
+      &quot;address&quot;: {
+        &quot;data&quot;: {
+          &quot;id&quot;: &quot;2&quot;,
+          &quot;type&quot;: &quot;location&quot;,
+          &quot;attributes&quot;: {
+            &quot;address&quot;: &quot;Apt. 195 211 Dooley Court, Harberstad, MA 18735-5752&quot;,
+            &quot;lat&quot;: 1.5,
+            &quot;lng&quot;: 1.5
+          }
+        }
+      },
       &quot;likes&quot;: 0,
       &quot;comments&quot;: [
 
       ],
-      &quot;media&quot;: &quot;http://localhost/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--45a4f90c9fd00eb52b30e185a0062b099d1f138e/testing.jpg&quot;
+      &quot;media&quot;: &quot;http://localhost/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--45a4f90c9fd00eb52b30e185a0062b099d1f138e/testing.jpg&quot;,
+      &quot;date&quot;: &quot;24 Jul 21:12&quot;
     }
   }
 }</pre>

@@ -1,12 +1,15 @@
 FactoryBot.define do
   factory :location do
-    address 'Poznan, Poland'
+    address Faker::Address.full_address
     lat 1.5
     lng 1.5
   end
   factory :post do
-    description 'Nice sunset over #bangkok'
+    description { Faker::BojackHorseman.quote }
     media { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/testing.jpg'), 'image/jpeg') }
+  end
+  factory :comment do
+    message { Faker::BojackHorseman.quote }
   end
   factory :user do
     username 'schoolboytom'

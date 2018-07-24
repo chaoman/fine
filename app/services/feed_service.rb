@@ -2,6 +2,7 @@
 class FeedService
   class << self
     FEED_POSTS_LIMIT = 200
+    FEED_RELEVANCY_TIME = (Date.today - 2.days)..Date.today
 
     FACTORS = {
       first_user_likes: 1.5, # current_user
@@ -24,39 +25,50 @@ class FeedService
     def post_relevance(post)
       relevant_likes = post_relevant_likes post
       relevant_comments = post_relevant_comments post
-      weights = [relevant_likes * FACTORS[:first_user_likes], relevant_comments * FACTORS[:first_user_comments]]
+      weights = [
+        relevant_likes * FACTORS[:first_user_likes],
+        relevant_comments * FACTORS[:first_user_comments]
+      ]
       weights.reduce(:+) / weights.size.to_f
     end
 
     def get_feed(user)
-      followed_users_ids = user.following.pluck(:followed_id)
-      followed_users = User.find(followed_users_ids)
-      Post.where(user: followed_users)
-          .take(FEED_POSTS_LIMIT)
+      Post.subscribed(user.following.pluck(:followed_id))
+          .last(FEED_POSTS_LIMIT)
           .sort_by { |post| post_final_weight(user, post) }
           .reverse
     end
 
     private
 
-    def five_minutes_cache
-      ActiveSupport::Cache::MemoryStore.new(expires_in: 5.minutes)
-    end
-
     def post_likes_count(user_liking, user_being_liked)
-      user_liking.posts.includes(:likes).where(likes: { user: user_being_liked }).count
+      entity_count(:likes, user_liking, user_being_liked)
     end
 
     def post_comments_count(user_commenting, user_being_commented)
-      user_commenting.posts.includes(:comments).where(comments: { user: user_being_commented }).count
+      entity_count(:comments, user_commenting, user_being_commented)
     end
 
     def post_relevant_likes(post)
-      post.likes.where(created_at: (Date.today - 2.days)..Date.today).count
+      post_relevant_entity_count(post.likes)
     end
 
     def post_relevant_comments(post)
-      post.comments.where(created_at: (Date.today - 2.days)..Date.today).count
+      post_relevant_entity_count(post.comments)
+    end
+
+    def entity_count(entity, user_doing, user_being)
+      user_doing.posts
+                .includes(entity)
+                .select(:user)
+                .where("#{entity}": { user: user_being })
+                .count
+    end
+
+    def post_relevant_entity_count(entity)
+      entity.select(:created_at)
+            .where(created_at: FEED_RELEVANCY_TIME)
+            .count
     end
 
     def post_final_weight(current_user, post)

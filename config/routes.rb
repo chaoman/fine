@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[create show]
 
-  resources :sessions, only: [:create]
+  resources :sessions, only: :create
 
   scope :posts do
     post ':post_id/comments', to: 'comments#create'
@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     put ':post_id/unlike', to: 'likes#unlike_post', as: 'unlike_post'
   end
   resources :posts, only: %i[index create]
+
+  scope :comments do
+    put ':comment_id/like', to: 'likes#like_comment', as: 'like_comment'
+    put ':comment_id/unlike', to: 'likes#unlike_comment', as: 'unlike_comment'
+  end
 
   scope :feed do
     get '', to: 'feeds#index'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sessions API</title>
+    <title>Likes API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,77 +106,46 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Sessions API</h1>
+      <h1>Likes API</h1>
 
       <div class="article">
-        <h2>Creating a new session / Sign in</h2>
-        <h3>POST /sessions</h3>
+        <h2>Unliking the comment</h2>
+        <h3>PUT /comments/:comment_id/unlike</h3>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="required">
-                    <span class="name">auth[email]</span>
-                </td>
-                <td>
-                  <span class="description">Auth email</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">auth[password]</span>
-                </td>
-                <td>
-                  <span class="description">Auth password</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxM30.r5UzkDsu7clwmx3lHiMJ6DMFqEdINK1pEh7YQgkYz94
+Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /sessions</pre>
+          <pre class="request route highlight">PUT /comments/4/unlike</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">auth[email]=tom%40schoolboy.io&auth[password]=BlahBlahBlah2%21</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;79ab7427a97b6370624ba31966306261&quot;
+ETag: W/&quot;29cfc1d606ad3e25ad35b779d05a477f&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: c0fb4e5c-86cb-437d-aab5-3d6e195f0f86
-X-Runtime: 0.009551
-Content-Length: 238</pre>
+X-Request-Id: abcf0ea1-470f-4b72-bc1f-7f1876409ab2
+X-Runtime: 0.009615
+Content-Length: 113</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: {
-    &quot;id&quot;: &quot;16&quot;,
-    &quot;type&quot;: &quot;user&quot;,
+    &quot;id&quot;: &quot;4&quot;,
+    &quot;type&quot;: &quot;comment&quot;,
     &quot;attributes&quot;: {
-      &quot;username&quot;: &quot;schoolboytom&quot;,
-      &quot;email&quot;: &quot;tom@schoolboy.io&quot;,
-      &quot;followers_count&quot;: 0,
-      &quot;following_count&quot;: 0,
-      &quot;auth_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxNn0.vsb8YtlqYfC9Nz8UXfHx_XzDgDjyRFRWLZS1PYjzopM&quot;
+      &quot;message&quot;: &quot;Dead on the inside, dead on the outside&quot;,
+      &quot;likes&quot;: 0
     }
   }
 }</pre>
