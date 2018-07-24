@@ -117,13 +117,13 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjo3fQ.32310tfkIuqASpzGgO9z696PIjt65McAuFQwPJ2T71o
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjo5fQ.xiuWLgkfP-oQrmsCNvA5xYfbS_FiBi5Gk2mkXmFzbW4
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT /posts/3/like</pre>
+          <pre class="request route highlight">PUT /posts/4/like</pre>
 
 
 
@@ -131,26 +131,29 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;602105a98367ed1ae075d8838553cbfd&quot;
+ETag: W/&quot;f90879e008466e1551a3990206964b04&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 7697f7a4-2407-4b4d-b697-49f907b6700c
-X-Runtime: 0.033923
-Content-Length: 153</pre>
+X-Request-Id: 331f16c2-c5f0-4617-85ff-6cfb507cf189
+X-Runtime: 0.032156
+Content-Length: 421</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: {
-    &quot;id&quot;: &quot;3&quot;,
+    &quot;id&quot;: &quot;4&quot;,
     &quot;type&quot;: &quot;post&quot;,
     &quot;attributes&quot;: {
       &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
-      &quot;user_id&quot;: 7,
-      &quot;address&quot;: &quot;Poznan, Poland&quot;,
+      &quot;user_id&quot;: 9,
+      &quot;relevance&quot;: 0.0,
+      &quot;created_at&quot;: &quot;2018-07-24 16:50:53 UTC&quot;,
+      &quot;address&quot;: &quot;#&lt;LocationSerializer:0x007feebc3f1ad0&gt;&quot;,
       &quot;likes&quot;: 1,
       &quot;comments&quot;: [
 
-      ]
+      ],
+      &quot;media&quot;: &quot;http://localhost/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--91a793e2de8629ffa1081067195031f23dc52d13/testing.jpg&quot;
     }
   }
 }</pre>

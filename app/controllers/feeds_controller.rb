@@ -1,10 +1,21 @@
 # Controller responsible for providing +User+ with +Post+ feed
 class FeedsController < ApplicationController
-  def index
-    followed_users_ids = current_user.following.select(:followed_id)
-    followed_users = followed_users_ids.map { |follow| User.find(follow.followed_id) }
-                                       .sort_by { |user| current_user.relationship_strength user }
+  include Paginatable
 
-    render json: followed_users
+  FEED_POSTS_PER_PAGE = 20
+  FEED_FIRST_PAGE = 0
+
+  expose :posts, -> { FeedService.get_feed(current_user) }
+
+  def index
+    page = pagination_params[:page].to_i || FEED_FIRST_PAGE
+    feed_posts = posts.map(&:serialized)
+    render json: paginate_array(feed_posts, FEED_POSTS_PER_PAGE, page)
+  end
+
+  private
+
+  def pagination_params
+    params.permit :page
   end
 end

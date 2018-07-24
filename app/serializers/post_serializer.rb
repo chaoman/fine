@@ -1,10 +1,12 @@
 # Serializer for +Post+ model
 class PostSerializer
+  MAXIMUM_PREVIEW_COMMENTS_COUNT = 10
+
   include FastJsonapi::ObjectSerializer
-  attributes :description, :user_id
+  attributes :description, :user_id, :relevance, :created_at
 
   attribute :address do |object|
-    object.location&.address
+    object.location.serialized
   end
 
   attribute :likes do |object|
@@ -12,6 +14,10 @@ class PostSerializer
   end
 
   attribute :comments do |object|
-    object.comments.map(&:as_hash)
+    object.comments.take(MAXIMUM_PREVIEW_COMMENTS_COUNT).map(&:serialized)
+  end
+
+  attribute :media do |object|
+    Rails.application.routes.url_helpers.rails_blob_url(object.media) if object.media.attached?
   end
 end

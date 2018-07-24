@@ -168,7 +168,7 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjo5fQ.xiuWLgkfP-oQrmsCNvA5xYfbS_FiBi5Gk2mkXmFzbW4
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.C01HgfOGdPiJsPO6smZ7MihOFjXRpCcVP_SH1CXESIs
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
@@ -178,32 +178,35 @@ Cookie: </pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">post[description]=Nice+sunset+over+%23bangkok&post[location_attributes][address]=Poznan%2C+Poland&post[location_attributes][lat]=1.5&post[location_attributes][lng]=1.5&post[media]=%23%3CActiveStorage%3A%3AAttached%3A%3AOne%3A0x007fba6aef3d88%3E</pre>
+            <pre class="request body">post[description]=Nice+sunset+over+%23bangkok&post[location_attributes][address]=Poznan%2C+Poland&post[location_attributes][lat]=1.5&post[location_attributes][lng]=1.5&post[media]=%23%3CActiveStorage%3A%3AAttached%3A%3AOne%3A0x007feebad311b0%3E</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;6a0c8415c7112d5bc65544b80a6e95f3&quot;
+ETag: W/&quot;7422365e1958226d06e3ce94432e17af&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 9a885627-dc62-4a67-b3fc-253aa15c34bf
-X-Runtime: 0.021802
-Content-Length: 153</pre>
+X-Request-Id: f46328bf-58a2-4517-a65c-895049cb7315
+X-Runtime: 0.019196
+Content-Length: 246</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: {
-    &quot;id&quot;: &quot;5&quot;,
+    &quot;id&quot;: &quot;6&quot;,
     &quot;type&quot;: &quot;post&quot;,
     &quot;attributes&quot;: {
       &quot;description&quot;: &quot;Nice sunset over #bangkok&quot;,
-      &quot;user_id&quot;: 9,
-      &quot;address&quot;: &quot;Poznan, Poland&quot;,
+      &quot;user_id&quot;: 11,
+      &quot;relevance&quot;: 0.0,
+      &quot;created_at&quot;: &quot;2018-07-24 16:50:53 UTC&quot;,
+      &quot;address&quot;: &quot;#&lt;LocationSerializer:0x007feebabb0520&gt;&quot;,
       &quot;likes&quot;: 0,
       &quot;comments&quot;: [
 
-      ]
+      ],
+      &quot;media&quot;: null
     }
   }
 }</pre>

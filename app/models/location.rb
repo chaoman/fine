@@ -1,5 +1,8 @@
 # Model of +Location+ entity
 class Location < ApplicationRecord
+  include Serializable
+  serializable serializer_class: LocationSerializer
+
   belongs_to :post
 
   validates :address, presence: true
